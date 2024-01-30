@@ -39,7 +39,7 @@ function App() {
 
   return (
     <QueryClientProvider client={client}>
-      <Router >
+      <Router basename="/react-fun">
         <Routes>
           <Route path="/" element={<Layout />} >
             <Route index element={<Home />} />
