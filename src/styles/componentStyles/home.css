@@ -1,0 +1,25 @@
+a.login-link {
+    color: var(--color-red);
+    position: absolute;
+    bottom: -15%;
+    left: 45%;
+    transition: .3s;
+}
+
+a.login-link span {
+    margin-left: 0px;
+    transition: .3s;
+}
+
+a.login-link:hover  span {
+   margin-left: 5px;
+   transition: .3s;
+}
+
+.buttons-group {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    max-width: 300px;
+    margin: 15px auto;
+}

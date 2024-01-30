@@ -1,0 +1,21 @@
+@import '@mdi/font/css/materialdesignicons.css';
+@import './componentStyles/header.css';
+@import './componentStyles/signIn.css';
+@import './componentStyles/catsFact.css';
+@import './componentStyles//burger.css';
+@import './componentStyles/home.css';
+
+:root {
+    --color-bg: rgb(238, 238, 240);
+    --color-text: rgb(46, 56, 64);
+    --color-red: rgb(235, 64, 3);
+    --color-btn: rgb(39, 61, 73);
+}
+
+body {
+    background-color: var(--color-bg);
+}
+
+.notification-color {
+    background-color: var(--color-bg);
+}

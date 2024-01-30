@@ -1,0 +1,22 @@
+.title-sign-in {
+    color: rgb(39, 61, 73);
+    font-weight: 600;
+    font-size: 18px;
+}
+
+.btn-login {
+    background-color:  rgb(39, 61, 73);
+    color: var(--color-bg);
+    transition: .2s;
+}
+
+
+.btn-login:hover {
+   background-color: var(--color-red);
+   color: var(--color-bg);
+}
+
+.btn-login[disabled] {
+    background-color:  rgba(39, 61, 73, 0.849);
+    color: var(--color-bg);
+}

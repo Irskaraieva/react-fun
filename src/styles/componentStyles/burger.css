@@ -1,0 +1,56 @@
+.nav-mob-btn {
+    position: relative;
+    position: absolute;
+    right: 15px;
+    top: 16px;
+    width: 30px;
+    height: 20px;
+    padding: 0px;
+    border: none;
+    background-color: inherit;
+    display: flex;
+    flex-direction: column;
+    display: none;
+    justify-content: space-between;
+    align-items: flex-end;
+    pointer-events: all;
+    z-index: 200
+}
+
+.nav-mob-btn:hover {
+    cursor: pointer;
+}
+
+.burger-line {
+    height: 2px;
+    width: 100%;
+    border-radius: 2px;
+    background-color: var(--color-bg);
+    opacity: 0.9;
+    transition: transform 0.3s, opacity 0.2s, background-color 0.3s;
+}
+
+@media (max-width: 768px) {
+
+    .nav-mob-btn.active .burger-line {
+        background-color: var(--color-red);
+    }
+
+    .nav-mob-btn {
+        display: flex; 
+    }
+
+    .nav-mob-btn.active div:nth-child(1) {
+        transform: rotate(39deg) translate(1px, 11px);
+       
+    }
+    
+    .nav-mob-btn.active div:nth-child(2) {
+        opacity: 0;
+    }
+    
+    .nav-mob-btn.active div:nth-child(3) {
+        transform: rotate(-40deg) translate(1px, -11px);
+    }
+
+  }
