@@ -1,0 +1,14 @@
+.tabs a.footer-link {
+    color: var(--color-btn);
+    transition: .3s;
+    font-size: .9em;
+    border-bottom-style: none;
+}
+
+a.footer-link:hover {
+    opacity: .8;
+    border-bottom-style: none;
+    
+    color: var(--color-red);
+    transition: .3s;
+}

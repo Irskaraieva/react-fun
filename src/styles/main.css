@@ -4,6 +4,7 @@
 @import './componentStyles/catsFact.css';
 @import './componentStyles//burger.css';
 @import './componentStyles/home.css';
+@import './componentStyles/footer.css';
 
 :root {
     --color-bg: rgb(238, 238, 240);
