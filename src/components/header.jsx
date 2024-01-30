@@ -120,7 +120,7 @@ const Header = () => {
                                         `}
                                         onClick={() => handleActiveClass()}
                                     >
-                                        Login
+                                        Log in
                                         <span className="icon is-medium ">
                                             <span className="mdi mdi-login mdi-18px"></span>
                                         </span>

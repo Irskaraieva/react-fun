@@ -34,7 +34,7 @@ const Home = () => {
                         <h5 className="title is-5 mt-6">You will see more, such as incredible facts about cats or generate a themed excuse for your absence, if you complete a simple registration</h5>
 
                         <Link to={'login'} className="login-link">
-                            Login <span className="mdi mdi-login"></span>
+                            Log in or regisrer <span className="mdi mdi-login"></span>
                         </Link>
                     </>
                 ) : (

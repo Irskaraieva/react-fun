@@ -13,7 +13,7 @@ import { auth } from '../firebase';
 export default function Login() {
 
     const [isRegisteredUser, setIsRegisteredUser] = useState(null);
-    const [isSignUpActive, setIsSignUpActive] = useState(false);
+    const [isSignUpActive, setIsSignUpActive] = useState(true);
     const [serverError, setServerError] = useState('');
 
     useEffect(() => {
@@ -105,15 +105,23 @@ export default function Login() {
 
                     {!isRegisteredUser ? (
                         <>
-                            <h5 className="title has-text-black is-5">
-                                Please, <a onClick={() => setIsSignUpActive(false)}>login </a>
-                                or <a onClick={() => setIsSignUpActive(true)}>
-                                    create an account</a> to proceed.
-                            </h5>
+                            <header className="is-flex is-flex-direction-column mb-3">
+                                <h6 className="title has-text-black is-6 mb-1">
+                                    If you don't have an account yet, please
+                                </h6>
+                                <a onClick={() => setIsSignUpActive(true)}> Create an account</a>
+                                <h6 className="title has-text-black is-6 mb-1"> or </h6>
+                                <a onClick={() => setIsSignUpActive(false)}>Log in </a>
+                                <h6 className="title has-text-black is-6 mb-1">
+                                    if you already have an ccount to proceed.
+                                </h6>
+                            </header>
+
+
                             <div className="box">
                                 <form onSubmit={handleSubmit(onSubmit)}>
-                                    {isSignUpActive && <legend className="title-sign-in"> Sign Up</legend>}
-                                    {!isSignUpActive && <legend className="title-sign-in"> Sign In</legend>}
+                                    {isSignUpActive && <legend className="title-sign-in"> Create an account</legend>}
+                                    {!isSignUpActive && <legend className="title-sign-in"> Log In</legend>}
                                     {serverError && <p className='has-text-danger-dark'>{serverError}</p>}
                                     <div className="field mt-4">
                                         <div className="control">
@@ -153,7 +161,7 @@ export default function Login() {
                                         <span>
                                             {
                                                 isSubmitting ? "Loading..." :
-                                               ( isSignUpActive ? 'Sign Up' : 'Sign In')
+                                                    (isSignUpActive ? 'Sign Up' : 'Sign In')
                                             }
                                         </span>
                                     </button>
@@ -163,10 +171,10 @@ export default function Login() {
 
                     ) : (
                         <>
-                        <span className="mdi mdi-hand-wave-outline"></span>
+                            <span className="mdi mdi-hand-wave-outline"></span>
                             <h5 className="title is-5">
-                             You have successfully registered!                                
-                            </h5>                           
+                                You have successfully registered!
+                            </h5>
                             <div className="block is-flex is-flex-direction-column">
                                 Go to
                                 <Link to={'/catFact'} className="button my-4 btn-generate">
