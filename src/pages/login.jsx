@@ -87,8 +87,13 @@ export default function Login() {
         } catch (error) {
             const errorCode = error.code;
             const errorMessage = error.message;
-            console.error(errorCode, errorMessage);
-            setServerError(errorMessage);
+
+            if (errorCode.includes('auth/invalid-credential')) {
+                setServerError('Email or password is incorrect');
+            } else {
+                setServerError('An unexpected error occurred. Please try again.');
+                console.error(errorCode, errorMessage);
+            }    
         }
     };
 
@@ -122,7 +127,21 @@ export default function Login() {
                                 <form onSubmit={handleSubmit(onSubmit)}>
                                     {isSignUpActive && <legend className="title-sign-in"> Create an account</legend>}
                                     {!isSignUpActive && <legend className="title-sign-in"> Log In</legend>}
-                                    {serverError && <p className='has-text-danger-dark'>{serverError}</p>}
+                                    {serverError.includes('auth/email-already-in-use')
+                                        ? (
+                                            <p className='has-text-danger-dark'>
+                                                Such a user is already registered. Maybe you want to <a onClick={() => setIsSignUpActive(false)}>
+                                                    Log in
+                                                </a> ?
+                                            </p>
+
+                                        )
+                                        : (
+                                            <p className='has-text-danger-dark'>
+                                                {serverError}
+                                            </p>
+                                        )
+                                    }
                                     <div className="field mt-4">
                                         <div className="control">
                                             <input
@@ -131,7 +150,6 @@ export default function Login() {
                                                 autoComplete="on"
                                                 type="text"
                                                 placeholder="Your Email"
-
                                                 autoFocus />
                                             <div className='has-text-danger-dark'>
                                                 {errors.email && <p>{errors.email.message}</p>}
@@ -146,7 +164,6 @@ export default function Login() {
                                                 className="input is-medium"
                                                 id='password'
                                                 name="password"
-
                                                 autoComplete="on" type="password" placeholder="Your Password" />
                                             <div className='has-text-danger-dark'>
                                                 {errors.password && <p>{errors.password.message}</p>}
@@ -161,7 +178,7 @@ export default function Login() {
                                         <span>
                                             {
                                                 isSubmitting ? "Loading..." :
-                                                    (isSignUpActive ? 'Sign Up' : 'Sign In')
+                                                    (isSignUpActive ? 'Create an account' : 'Log In')
                                             }
                                         </span>
                                     </button>
