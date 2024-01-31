@@ -5,6 +5,7 @@
 @import './componentStyles//burger.css';
 @import './componentStyles/home.css';
 @import './componentStyles/footer.css';
+@import './componentStyles/excuses.css';
 
 :root {
     --color-bg: rgb(238, 238, 240);

@@ -17,4 +17,14 @@
 .btn-generate:hover {
    background-color: var(--color-red);
    color: var(--color-bg);
+   border-color: var(--color-red);
+}
+@media (max-width: 768px) {
+    .btn-generate,
+    .btn-generate:hover,
+    .btn-generate:active {
+        background-color:  var(--color-red);
+        color: var(--color-bg);
+        border-color: var(--color-red);
+     }
 }

@@ -24,9 +24,9 @@ export default function Excuses() {
                 <button
                     onClick={() => {
                         fetchExcuse('party');
-                        generateColor('is-info');
+                        generateColor('is-link');
                     }}
-                    className="button is-info">
+                    className="button is-link is-flex-grow-4">
                     Party
                 </button>
                 <button
@@ -34,7 +34,7 @@ export default function Excuses() {
                         fetchExcuse('family');
                         generateColor('is-success');
                     }}
-                    className="button is-success">
+                    className="button is-success is-flex-grow-2">
                     Family
                 </button>
                 <button
@@ -42,7 +42,7 @@ export default function Excuses() {
                         fetchExcuse('unbelievable');
                         generateColor('is-warning');
                     }}
-                    className="button is-warning">
+                    className="button is-warning is-flex-grow-4">
                     Unbelievable
                 </button>
                 <button
@@ -50,7 +50,7 @@ export default function Excuses() {
                         fetchExcuse('children');
                         generateColor('is-danger');
                     }}
-                    className="button is-danger">
+                    className="button is-danger is-flex-grow-2">
                     Children
                 </button>
                 <button
@@ -58,15 +58,15 @@ export default function Excuses() {
                         fetchExcuse('gaming');
                         generateColor('is-dark');
                     }}
-                    className="button is-dark">
+                    className="button is-dark is-flex-grow-2">
                     Gaming
                 </button>
                 <button
                     onClick={() => {
                         fetchExcuse('developers');
-                        generateColor('is-success');
+                        generateColor('');
                     }}
-                    className="button is-success">
+                    className="button btn-generate">
                     Developers
                 </button>
                 <button

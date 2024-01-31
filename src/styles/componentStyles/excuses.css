@@ -1,0 +1,9 @@
+@media (max-width: 768px) {
+    button.btn-generate,
+    button.btn-generate:hover,
+    button.btn-generate:active {
+        background-color:  var(--color-red);
+        color: var(--color-bg);
+        border-color: var(--color-red);
+     }
+}
