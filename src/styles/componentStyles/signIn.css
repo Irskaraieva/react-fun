@@ -4,6 +4,14 @@
     font-size: 18px;
 }
 
+a.sign-in-link {
+    transition: .3s;
+}
+
+a.sign-in-link:hover {
+    color: var(--color-red);
+}
+
 .btn-login {
     background-color:  rgb(39, 61, 73);
     color: var(--color-bg);
@@ -19,4 +27,15 @@
 .btn-login[disabled] {
     background-color:  rgba(39, 61, 73, 0.849);
     color: var(--color-bg);
+}
+
+.forgot-password {
+    font-size: 14px;
+    color: blue;
+    transition: .3s;
+}
+
+.forgot-password:hover {
+    color: red;
+    cursor: pointer;
 }

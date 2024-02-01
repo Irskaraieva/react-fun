@@ -2,11 +2,13 @@ import { Link } from "react-router-dom";
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { signOut, onAuthStateChanged } from "firebase/auth";
 import { useState, useEffect } from 'react';
 import {
     createUserWithEmailAndPassword,
     signInWithEmailAndPassword,
+    signOut,
+    onAuthStateChanged,
+    sendPasswordResetEmail
 } from 'firebase/auth';
 import { auth } from '../firebase';
 
@@ -51,7 +53,6 @@ export default function Login() {
 
             } else {
                 handleSignIn(data);
-
             }
         } catch (error) {
             const errorCode = error.code;
@@ -93,7 +94,7 @@ export default function Login() {
             } else {
                 setServerError('An unexpected error occurred. Please try again.');
                 console.error(errorCode, errorMessage);
-            }    
+            }
         }
     };
 
@@ -101,6 +102,12 @@ export default function Login() {
         signOut(auth)
             .then(() => console.log("Sign Out"))
             .catch((error) => console.error(error));
+    };
+
+    const handleResetPassword = () => {
+        const email = prompt('Please enter your emal');
+        sendPasswordResetEmail(auth, email);
+        alert('Email sent! Check your inbox for password reset instructions');
     };
 
     return (
@@ -111,15 +118,22 @@ export default function Login() {
                     {!isRegisteredUser ? (
                         <>
                             <header className="is-flex is-flex-direction-column mb-3">
+                                <h5 className="title has-text-black is-5 mb-3">
+                                    Welcome to ReactFun
+                                </h5>
+
                                 <h6 className="title has-text-black is-6 mb-1">
-                                    If you don't have an account yet, please
+                                    <a
+                                        className="sign-in-link"
+                                        onClick={() => setIsSignUpActive(true)}>
+                                        Create an account
+                                    </a> or  <a
+                                        className="sign-in-link"
+                                        onClick={() => setIsSignUpActive(false)}>
+                                        Log in
+                                    </a> to continue
                                 </h6>
-                                <a onClick={() => setIsSignUpActive(true)}> Create an account</a>
-                                <h6 className="title has-text-black is-6 mb-1"> or </h6>
-                                <a onClick={() => setIsSignUpActive(false)}>Log in </a>
-                                <h6 className="title has-text-black is-6 mb-1">
-                                    if you already have an ccount to proceed.
-                                </h6>
+
                             </header>
 
 
@@ -146,7 +160,7 @@ export default function Login() {
                                         <div className="control">
                                             <input
                                                 {...register('email')}
-                                                className="input is-medium" name="email"
+                                                className="input is-medium mb-2" name="email"
                                                 autoComplete="on"
                                                 type="text"
                                                 placeholder="Your Email"
@@ -161,7 +175,7 @@ export default function Login() {
                                         <div className="control">
                                             <input
                                                 {...register('password')}
-                                                className="input is-medium"
+                                                className="input is-medium mb-2"
                                                 id='password'
                                                 name="password"
                                                 autoComplete="on" type="password" placeholder="Your Password" />
@@ -183,7 +197,13 @@ export default function Login() {
                                         </span>
                                     </button>
                                 </form>
+
                             </div>
+                            <p
+                                onClick={handleResetPassword}
+                                className="forgot-password">
+                                Forgot Password?
+                            </p>
                         </>
 
                     ) : (
