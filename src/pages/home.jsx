@@ -41,7 +41,7 @@ const Home = () => {
                     <>
                         <h5 className="title is-5 mt-6">I'm glad you're here, {isRegisteredUser.email.split("@")[0]}!</h5>
                         <div className="buttons-group">
-                            You can navigate from this plase to
+                            You can navigate to
                             <Link to={'/catFact'} className="button btn-generate">
                                 Amazing cat's fakts
                                 <span className="mdi mdi-arrow-right-bold-outline ml-3"></span>

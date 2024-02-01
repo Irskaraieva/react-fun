@@ -1,4 +1,4 @@
-import { Link, useLocation } from "react-router-dom";
+import { Link, NavLink, useLocation } from "react-router-dom";
 import { FaEarthEurope } from "react-icons/fa6";
 import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "../firebase";
@@ -8,6 +8,7 @@ import { useMediaQuery } from "@react-hook/media-query";
 
 const Header = () => {
     const location = useLocation();
+    
     const [focusedLink, setFocusedLink] = useState('/');
     const [isRegisteredUser, setIsRegisteredUser] = useState(null);
     const [isActive, setIsActive] = useState(false);
@@ -18,6 +19,17 @@ const Header = () => {
             setIsActive(!isActive);
         };
     };
+    useEffect(() => {        
+        const handlePopstate = () => {
+            document.activeElement.blur();
+        };
+
+        window.addEventListener('popstate', handlePopstate);
+
+        return () => {
+            window.removeEventListener('popstate', handlePopstate);
+        };
+    }, []);
     
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, (user) => {
@@ -49,33 +61,23 @@ const Header = () => {
                     </div>
                     <div className={`navbar-end nav-content ${isActive ? "active" : ""}`}>
                         <div className="navbar-end nav-content-items">
-                            <Link
+                            <NavLink
                                 to={"/"}
-                                className={`
-                                navbar-item header-text 
-                                ${isActive ? 'active' : ''} 
-                                ${(focusedLink === "/")? 'is-focus' : ''}                
-                                `}
-                                onClick={() => {                                    
-                                    handleActiveClass();
-                                }}
+                                className={`navbar-item header-text ${isActive ? 'active' : ''} ${(focusedLink === "/")? 'is-focus' : ''}`}
+                                onClick={handleActiveClass}
                             >
                                 Home
-                            </Link>
+                            </NavLink>
                             {isRegisteredUser ? (
                                 <>
-                                    <Link
+                                    <NavLink
                                         to={"catFact"}
-                                        className={`
-                                        navbar-item header-text 
-                                        ${isActive ? 'active' : ''} 
-                                        ${(focusedLink === "/catFact") ? 'is-focus' : ''}
-                                        `}
-                                        onClick={() => handleActiveClass()}
+                                        className={`navbar-item header-text ${isActive ? 'active' : ''} ${(focusedLink === "/catFact")? 'is-focus' : ''}`}
+                                        onClick={handleActiveClass}
                                     >
                                         Cat's fact
-                                    </Link>
-                                    <Link
+                                    </NavLink>
+                                    <NavLink
                                         to={"excuses"}
                                         className={`
                                         navbar-item header-text 
@@ -85,16 +87,8 @@ const Header = () => {
                                         onClick={() => handleActiveClass()}
                                     >
                                         Excuses
-                                    </Link>
-                                    <span
-                                        className={`navbar-item header-text`}
-                                    >
-                                        <span className="icon is-medium mr-1 has-text-success">
-                                            <span className="mdi mdi-account-check mdi-24px"></span>
-                                        </span>
-                                        
-                                    </span>
-                                    <Link
+                                    </NavLink>
+                                    <NavLink
                                         to={"login"}
                                         onClick={() => handleActiveClass()}
                                         className={`
@@ -107,11 +101,11 @@ const Header = () => {
                                         <span className="icon is-medium ml-1">
                                             <span className="mdi mdi-logout mdi-18px"></span>
                                         </span>
-                                    </Link>
+                                    </NavLink>
                                 </>
                             ) : (
                                 <>
-                                    <Link
+                                    <NavLink
                                         to={"login"}
                                         className={`
                                         navbar-item header-text
@@ -124,7 +118,7 @@ const Header = () => {
                                         <span className="icon is-medium ">
                                             <span className="mdi mdi-login mdi-18px"></span>
                                         </span>
-                                    </Link>
+                                    </NavLink>
                                 </>
                             )}
                         </div>

@@ -208,7 +208,9 @@ export default function Login() {
 
                     ) : (
                         <>
-                            <span className="mdi mdi-hand-wave-outline"></span>
+                            <span className="icon is-medium mr-1 has-text-success-dark">
+                                <span className="mdi mdi-account-check mdi-24px"></span>
+                            </span>
                             <h5 className="title is-5">
                                 You have successfully registered!
                             </h5>

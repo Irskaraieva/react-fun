@@ -13,18 +13,14 @@ a.header-log:hover {
     z-index: 5;
 }
 
-.header-text {
+.header-text,
+.header-text:focus {
     color: var(--color-bg);
     display: flex;
     align-items: center;
     height: 100%;
+    background-color: inherit;
 }
-
-.is-focus {
-    color: var(--color-red);
-    background-color: var(--color-bg);
-}
-
 
 div.nav-content-items {
     display: flex;
@@ -50,6 +46,11 @@ div.nav-content {
     flex-direction: row;
     justify-content: flex-end;
     
+}
+
+a.is-focus {
+    color: var(--color-red);
+    background-color: var(--color-bg);
 }
 
 @media (max-width: 768px) {
