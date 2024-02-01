@@ -107,7 +107,7 @@ export default function Login() {
     const handleResetPassword = () => {
         const email = prompt('Please enter your emal');
         sendPasswordResetEmail(auth, email);
-        alert('Email sent! Check your inbox for password reset instructions');
+        alert('Email sent! Check your inbox for password reset instructions and then go back to sign in again with your new password. We are waiting for you!');
     };
 
     return (
