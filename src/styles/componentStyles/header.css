@@ -13,12 +13,18 @@ a.header-log:hover {
     z-index: 5;
 }
 
-.header-text,
-.header-text:focus {
+
+.header-text {
     color: var(--color-bg);
     display: flex;
     align-items: center;
     height: 3.25rem;
+    background-color: inherit;
+}
+
+
+.header-text:focus {
+    color: var(--color-bg);
     background-color: inherit;
 }
 
@@ -77,12 +83,11 @@ a.is-focus {
     div.nav-content.active div.nav-content-items {
         flex-direction: column;
         justify-content: flex-start;
-
         align-items: start;
         width: 100%;
     }
 
-    .header-text {
+    a.header-text {
         display: none;
         color: var(--color-btn);
         font-size: 1.1rem;
@@ -91,14 +96,11 @@ a.is-focus {
         height: auto;
         width: 100%;
         padding-left: 40%;
+        
     }
 
     .header-text.active {
         display: flex;
     }
 
-    .header-text.active:hover {
-        background-image: linear-gradient(to right top, #1f343e, #1a2a3c, #1f1f36, #26122a, #2a0219);
-        color: var(--color-bg);
-    }
 }
