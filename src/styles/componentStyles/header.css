@@ -1,5 +1,5 @@
 .header-bg {
-    background-color: var(--color-btn);
+    background-image: linear-gradient(to right top, #1f343e, #1a2a3c, #1f1f36, #26122a, #2a0219);
 }
 
 .nav {
@@ -9,7 +9,7 @@
 
 .header-log,
 a.header-log:hover {
-    color: var(--color-red);
+    color: var(--color-bg);
     z-index: 5;
 }
 
@@ -18,7 +18,7 @@ a.header-log:hover {
     color: var(--color-bg);
     display: flex;
     align-items: center;
-    height: 100%;
+    height: 3.25rem;
     background-color: inherit;
 }
 
@@ -28,7 +28,7 @@ div.nav-content-items {
     align-items: center;
     text-align: center;
     justify-content: flex-end;
-  }
+}
 
 a.header-text:hover,
 a.header-text:focus {
@@ -45,7 +45,7 @@ div.nav-content {
     display: flex;
     flex-direction: row;
     justify-content: flex-end;
-    
+
 }
 
 a.is-focus {
@@ -56,28 +56,28 @@ a.is-focus {
 @media (max-width: 768px) {
 
     div.nav-content {
-    position: absolute;
-    z-index: 8;
-    right: 0;
-    top: 52px;
-    width: 0;
-    background: var(--color-bg);
-    pointer-events: none;
-    opacity: 0;
-    transition: all 0.4s ease-in-out; 
+        position: absolute;
+        z-index: 8;
+        right: 0;
+        top: 52px;
+        width: 0;
+        background: var(--color-bg);
+        pointer-events: none;
+        opacity: 0;
+        transition: all 0.4s ease-in-out;
     }
 
     div.nav-content.active {
         opacity: 1;
         width: 100vw;
         height: 100vh;
-        pointer-events:all;
+        pointer-events: all;
     }
 
-    div.nav-content.active div.nav-content-items {        
+    div.nav-content.active div.nav-content-items {
         flex-direction: column;
         justify-content: flex-start;
-    
+
         align-items: start;
         width: 100%;
     }
@@ -90,7 +90,7 @@ a.is-focus {
         font-weight: 600;
         height: auto;
         width: 100%;
-        padding-left: 40% ;
+        padding-left: 40%;
     }
 
     .header-text.active {
@@ -98,7 +98,7 @@ a.is-focus {
     }
 
     .header-text.active:hover {
-        background-color: var(--color-btn);
+        background-image: linear-gradient(to right top, #1f343e, #1a2a3c, #1f1f36, #26122a, #2a0219);
         color: var(--color-bg);
     }
 }

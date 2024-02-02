@@ -107,9 +107,9 @@ export default function Login() {
     const handleResetPassword = () => {
         const email = prompt('Please enter your emal');
         sendPasswordResetEmail(auth, email);
-            email ? 
+        email ?
             alert('Email sent! Check your inbox for password reset instructions and then go back to sign in again with your new password. We are waiting for you!')
-            : 
+            :
             alert('Password reset canceled.');
     };
 
@@ -136,9 +136,7 @@ export default function Login() {
                                         Log in
                                     </a> to continue
                                 </h6>
-
                             </header>
-
 
                             <div className="box">
                                 <form onSubmit={handleSubmit(onSubmit)}>
@@ -217,17 +215,19 @@ export default function Login() {
                             <h5 className="title is-5">
                                 You have successfully registered!
                             </h5>
-                            <div className="block is-flex is-flex-direction-column">
+                            <div className="block">
                                 Go to
-                                <Link to={'/catFact'} className="button my-4 btn-generate">
-                                    Amazing cat's fakts
-                                    <span className="mdi mdi-arrow-right-bold-outline ml-3"></span>
-                                </Link>
-                                or
-                                <Link to={'/excuses'} className="button my-4 btn-generate">
-                                    Funny excuses
-                                    <span className="mdi mdi-arrow-right-bold-outline ml-3"></span>
-                                </Link>
+                                <div className="buttons-group">
+                                    <Link to={'/catFact'} className="button my-1 btn-generate">
+                                        Amazing cat's fakts
+                                        <span className="mdi mdi-arrow-right-bold-outline ml-3"></span>
+                                    </Link>
+                                    or
+                                    <Link to={'/excuses'} className="button my-1 btn-generate">
+                                        Funny excuses
+                                        <span className="mdi mdi-arrow-right-bold-outline ml-3"></span>
+                                    </Link>
+                                </div>
                             </div>
 
                             <Link to={'/'} className="login-link" onClick={handleSignOut}>

@@ -1,8 +1,9 @@
 .btn-generate {
-    background-color:  rgb(39, 61, 73);
+    background-color: #0a2531;
     color: var(--color-bg);
     transition: .2s;
     box-shadow: none;
+    height: 3em;
 }
 
 .btn-generate:focus {
@@ -19,6 +20,7 @@
    color: var(--color-bg);
    border-color: var(--color-red);
 }
+
 @media (max-width: 768px) {
     .btn-generate,
     .btn-generate:hover,

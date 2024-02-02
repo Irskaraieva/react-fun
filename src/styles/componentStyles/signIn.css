@@ -13,14 +13,14 @@ a.sign-in-link:hover {
 }
 
 .btn-login {
-    background-color:  rgb(39, 61, 73);
+    background-image: linear-gradient(to right top, #263d49, #21364e, #2c2c4e, #3d1e44, #4b0730);
     color: var(--color-bg);
-    transition: .2s;
+    transition: all .3s;
 }
 
 
 .btn-login:hover {
-   background-color: var(--color-red);
+    background-image: linear-gradient(to right top, #1e141f, #2a1528, #38132f, #480f34, #580536);
    color: var(--color-bg);
 }
 

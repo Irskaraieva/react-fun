@@ -1,3 +1,12 @@
+
+.buttons {
+    gap: 6px;
+}
+.buttons button {
+    height: 3em;
+    transition: all .2s;
+}
+
 @media (max-width: 768px) {
     button.btn-generate,
     button.btn-generate:hover,
