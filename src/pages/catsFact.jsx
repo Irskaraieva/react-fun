@@ -21,9 +21,13 @@ const CatFact = () => {
                 <div className="notification  notification-color pt-0">
                     <h4 className="title is-4">Interesting fact about cats:</h4>
                     {isLoading ?
-                        <h1 className="has-text-centered is-size-4 mb-6">Loading...</h1> :
+                    
+                        <h1 className="has-text-centered is-size-4 mb-6">Loading...
+                        </h1> 
+                        :
                         <p>{data?.fact}</p>
                     }
+                    
                 </div>
 
                 <button
@@ -31,6 +35,8 @@ const CatFact = () => {
                     className="button mb-5 btn-generate">
                     Generate another Fact
                 </button>
+
+                <div id="cat"></div>
             </div>
         </div>
     );
