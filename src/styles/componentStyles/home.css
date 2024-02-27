@@ -280,9 +280,9 @@ label {
     width: 20px;
     border-radius: 100%;
     background: #ffffff;
-    box-shadow: 2px 2px 14px 8px rgba(0, 0, 0, 0.37);
-    -webkit-box-shadow: 2px 2px 14px 8px rgba(0, 0, 0, 0.37);
-    -moz-box-shadow: 2px 2px 14px 8px rgba(0, 0, 0, 0.37);
+    box-shadow: 2px 2px 14px 8px rgba(0,0,0,0.37);
+    -webkit-box-shadow: 2px 2px 14px 8px rgba(0,0,0,0.37);
+    -moz-box-shadow: 2px 2px 14px 8px rgba(0,0,0,0.37);
 }
 
 /* TOGGLE */
@@ -355,3 +355,7 @@ input[type=checkbox]:checked~.c-window .the-cat:hover .eyes {
     bottom: 70px;
     z-index: 50;
 }
+
+* {
+    -webkit-tap-highlight-color: transparent;
+  }
