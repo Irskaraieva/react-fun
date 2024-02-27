@@ -52,9 +52,9 @@ const Home = () => {
                             </div>
 
                             <div class="switch">
-                                <div class="button">
+                                <button class="button">
                                     <div class="b-inside"></div>
-                                </div>
+                                </button>
                             </div>
 
                             <div class="c-window">
