@@ -28,6 +28,33 @@ a.sign-in-link:hover {
     color: var(--color-bg);
 }
 
+
+.google-btn {
+    line-height: 32px;
+    margin: 12px auto;
+    width: 200px;
+    border-radius: 11px;
+    color: white;
+    background-color: rgb(44, 44, 44);
+    padding: 4px;
+    transition: all 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+
+    @media (min-width: 420px) {
+      &:hover {
+        background-color: black;
+        cursor: pointer;
+      }
+    }
+
+    .google-icon {
+      font-size: 1.4em;
+    }
+  }
+
 .forgot-password {
     font-size: 14px;
     color: blue;

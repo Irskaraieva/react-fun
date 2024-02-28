@@ -6,11 +6,13 @@ import { useState, useEffect } from 'react';
 import {
     createUserWithEmailAndPassword,
     signInWithEmailAndPassword,
+    signInWithPopup,
     signOut,
     onAuthStateChanged,
     sendPasswordResetEmail
 } from 'firebase/auth';
-import { auth } from '../firebase';
+import { auth, googleProvider } from '../firebase';
+import { FcGoogle } from "react-icons/fc";
 
 export default function Login() {
 
@@ -97,7 +99,15 @@ export default function Login() {
             }
         }
     };
-
+    const signInWithGoogle = async () => {
+        try {
+            const userCredential = await signInWithPopup(auth, googleProvider);
+            const user = userCredential.user;
+            reset();
+        } catch (error) {
+            console.log(error);
+        }
+    };
     const handleSignOut = () => {
         signOut(auth)
             .then(() => console.log("Sign Out"))
@@ -198,7 +208,12 @@ export default function Login() {
                                         </span>
                                     </button>
                                 </form>
-
+                                <button
+                                className="google-btn"
+                                onClick={signInWithGoogle}>
+                                <span>Sign in with Google</span>
+                                <FcGoogle className="google-icon" />
+                            </button>
                             </div>
                             <p
                                 onClick={handleResetPassword}
